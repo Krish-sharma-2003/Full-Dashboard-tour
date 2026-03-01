@@ -11,6 +11,7 @@ import { ClinicalOverview } from "../pages/ClinicalOverview";
 import { AIProcessing } from "../pages/AIProcessing";
 import { ProcessingLayout } from "../layout/ProcessingLayout";
 import { ComplianceReview } from "../pages/ComplianceReview";
+import { ComplianceLayout } from "../layout/ComplianceLayout";
 
 export const AppRoutes = () => {
   return (
@@ -28,11 +29,12 @@ export const AppRoutes = () => {
   {/* WORKSPACE LAYOUT (Screen 3 onwards) */}
   <Route element={<WorkspaceLayout />}>
     <Route path="/workspace" element={<ClinicalOverview />} />
-    <Route path="/compliance-review" element={<ComplianceReview />} />
     
     {/* <Route path="/ai-processing" element={<AIProcessing />} /> */}
   </Route>
-
+   <Route element={<ComplianceLayout />}>
+  <Route path="/compliance-review" element={<ComplianceReview />} />
+</Route>
    {/* AI PROCESSING (NO SIDEBAR) */}
   <Route element={<ProcessingLayout />}>
     <Route path="/ai-processing" element={<AIProcessing />} />
