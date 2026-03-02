@@ -291,11 +291,13 @@
 // };
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Search, Bell, Settings, User } from "lucide-react";
 
 export const ComplianceReview = () => {
   const [activeTab, setActiveTab] = useState("all");
-
+  const navigate = useNavigate();   // ✅ add this
+  
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
 
@@ -328,7 +330,7 @@ export const ComplianceReview = () => {
               </div>
             </div>
 
-            <button className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-5 py-2 rounded-xl shadow-md text-sm">
+            <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-2 rounded-xl shadow-md text-sm">
               Complete Review
             </button>
           </div>
@@ -342,7 +344,7 @@ export const ComplianceReview = () => {
                 key={index}
                 className={`pb-2 ${
                   index === 0
-                    ? "border-b-2 border-purple-600 text-purple-600 font-medium"
+                    ? "border-b-2 border-indigo-600 text-indigo-600 font-medium"
                     : "text-slate-500"
                 }`}
               >
@@ -406,10 +408,10 @@ export const ComplianceReview = () => {
                 </p>
 
                 <div className="flex gap-3">
-                  <button className="bg-purple-600 text-white px-4 py-2 rounded-xl text-sm">
+                  <button className="bg-indigo-600 text-white px-4 py-2 rounded-xl text-sm">
                     Fix Manual
                   </button>
-                  <button className="border border-purple-600 text-purple-600 px-4 py-2 rounded-xl text-sm">
+                  <button className="border border-indigo-600 text-indigo-600 px-4 py-2 rounded-xl text-sm">
                     Request AI Rewrite
                   </button>
                 </div>
@@ -417,14 +419,14 @@ export const ComplianceReview = () => {
             ))}
 
             {/* SMART ASSISTANT */}
-            <div className="mt-8 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-2xl p-6 shadow-lg">
+            <div className="mt-8 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl p-6 shadow-lg">
               <h3 className="font-semibold text-lg mb-2">
                 Smart Compliance Assistant
               </h3>
               <p className="text-sm opacity-90">
                 AI can auto-detect missing cross references and generate compliant content.
               </p>
-              <button className="mt-4 bg-white text-purple-600 px-4 py-2 rounded-xl text-sm font-medium">
+              <button className="mt-4 bg-white text-indigo-600 px-4 py-2 rounded-xl text-sm font-medium">
                 Launch Assistant
               </button>
             </div>
@@ -458,7 +460,7 @@ export const ComplianceReview = () => {
               <span>Page 1 of 42</span>
               <div className="flex gap-2">
                 <button className="px-2 py-1 border rounded">‹</button>
-                <button className="px-3 py-1 bg-purple-600 text-white rounded">
+                <button className="px-3 py-1 bg-indigo-600 text-white rounded">
                   1
                 </button>
                 <button className="px-3 py-1 border rounded">2</button>
@@ -482,13 +484,16 @@ export const ComplianceReview = () => {
             ⚠ Compliance Not Met
           </div>
 
-          <button className="bg-purple-600 text-white px-5 py-2 rounded-xl text-sm">
+          <button className="bg-indigo-600 text-white px-5 py-2 rounded-xl text-sm">
             Save Progress
           </button>
 
-          <button className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-5 py-2 rounded-xl text-sm">
-            Run Re-Validation
-          </button>
+         <button
+  onClick={() => navigate("/submissions/readiness")}
+  className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-2 rounded-xl text-sm"
+>
+  Run Re-Validation
+</button>
         </div>
       </div>
 
