@@ -171,7 +171,7 @@ export const AIProcessing = () => {
         {/* const navigate = useNavigate(); */}
         <button
            onClick={() => navigate("/workspace?state=updated")}
-          className="px-6 py-2.5 rounded-xl bg-[rgb(44,73,182)] text-white text-sm font-semibold shadow-md hover:opacity-90 transition"
+          className="accept-suggestions-btn px-6 py-2.5 rounded-xl bg-[rgb(44,73,182)] text-white text-sm font-semibold shadow-md hover:opacity-90 transition"
         >
           Accept Suggestions →
         </button>

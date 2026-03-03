@@ -428,7 +428,7 @@ export const CreateProjectModal = ({ isOpen, onClose }: Props) => {
 
           <button
             onClick={handleCreate}
-            className="bg-indigo-600 text-white px-6 py-2.5 rounded-full shadow-md hover:opacity-90"
+            className="create-project-btn bg-indigo-600 text-white px-6 py-2.5 rounded-full shadow-md hover:opacity-90"
           >
             Create Project
           </button>

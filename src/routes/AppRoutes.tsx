@@ -14,12 +14,14 @@ import { AIProcessing } from "../pages/AIProcessing";
 import { ComplianceReview } from "../pages/ComplianceReview";
 import { ModuleReadiness } from "../pages/ModuleReadiness";
 import { SubmissionBuild } from "../pages/SubmissionBuild";
+import { TourProvider } from "../tour/TourProvider";
 
 export const AppRoutes = () => {
   return (
     <BrowserRouter>
+     <TourProvider />  
       <Routes>
-
+         
         {/* MAIN APP */}
         <Route element={<Layout />}>
           <Route path="/" element={<Dashboard />} />

@@ -138,13 +138,13 @@ export const SubmissionBuild = () => {
             </div>
 
             {/* Generate Button */}
-            <button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-2xl shadow-lg flex items-center justify-center gap-2 text-sm font-medium">
+            <button className="generate-package-btn w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-2xl shadow-lg flex items-center justify-center gap-2 text-sm font-medium">
               <Download size={18} />
               Generate & Download eCTD Package
             </button>
 
             {/* View Report */}
-            <button className="w-full border py-3 rounded-2xl text-sm flex items-center justify-center gap-2 bg-white">
+            <button className="view-report-btn w-full border py-3 rounded-2xl text-sm flex items-center justify-center gap-2 bg-white">
               <FileText size={16} />
               View Validation Report
             </button>

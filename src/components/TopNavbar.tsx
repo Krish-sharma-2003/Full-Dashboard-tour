@@ -17,10 +17,10 @@ export const TopNavbar = () => {
         <div className="flex items-center gap-6 text-sm text-slate-600">
           <button onClick={() => navigate("/")}>Dashboard</button>
           <button onClick={() => navigate("/projects")}>Projects</button>
-          <button onClick={() => navigate("/compliance-review")}>
+          <button onClick={() => navigate("/compliance-review")} className="navbar-compliance">
             Compliance
           </button>
-          <button onClick={() => navigate("/submissions/readiness")}>
+          <button onClick={() => navigate("/submissions/readiness")} className="navbar-submissions">
             Submissions
           </button>
         </div>

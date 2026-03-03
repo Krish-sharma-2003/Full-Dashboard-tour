@@ -93,7 +93,7 @@ export const Dashboard = (): JSX.Element => {
 
           <Button
             onClick={() => setIsModalOpen(true)}
-            className="gap-2 px-5 py-2.5 bg-[rgb(44,73,182)] hover:opacity-90 rounded-full shadow-lg hover:shadow-xl transition-all"
+            className="create-project-btn gap-2 px-5 py-2.5 bg-[rgb(44,73,182)] hover:opacity-90 rounded-full shadow-lg hover:shadow-xl transition-all"
           >
             <PlusIcon className="w-4 h-4" />
             <span className="font-semibold text-white text-sm md:text-base">
@@ -141,7 +141,7 @@ export const Dashboard = (): JSX.Element => {
               <Card
                 key={project.id}
                 onClick={() => navigate("/workspace")}
-                className="w-full bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all hover:border-slate-300 cursor-pointer"
+                className="project-card cursor-pointer  w-full bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all hover:border-slate-300 cursor-pointer"
               >
                 <CardContent className="flex flex-col md:flex-row items-start md:items-center justify-between p-5 md:p-6 gap-4">
                   <div className="flex items-start md:items-center gap-4 md:gap-6 w-full md:w-auto">

@@ -9,12 +9,12 @@ interface Props {
 }
 
 export const AIDraftEditorModal = ({ isOpen, onClose }: Props) => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
-      <div className="bg-white w-full max-w-6xl rounded-2xl shadow-2xl overflow-hidden">
+      <div className="draft-editor bg-white w-full max-w-6xl rounded-2xl shadow-2xl overflow-hidden">
 
         {/* HEADER */}
         <div className="flex items-center justify-between px-8 py-5 border-b bg-slate-50">
@@ -217,21 +217,21 @@ export const AIDraftEditorModal = ({ isOpen, onClose }: Props) => {
           </div>
 
 
-<div className="flex gap-4">
-    <button onClick={onClose}  className="text-sm text-gray-500 hover:text-gray-700">
-      Cancel Draft
-    </button>
+          <div className="flex gap-4">
+            <button onClick={onClose} className="text-sm text-gray-500 hover:text-gray-700">
+              Cancel Draft
+            </button>
 
-    <button
-  onClick={() => {
-    onClose();
-    navigate("?state=updated", { replace: true });
-  }}
-  className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl shadow-md text-sm"
->
-  Accept & Save to Module
-</button>
-  </div>
+            <button
+              onClick={() => {
+                onClose();
+                navigate("?state=updated", { replace: true });
+              }}
+              className="generate-draft-btn bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl shadow-md text-sm"
+            >
+              Accept & Save to Module
+            </button>
+          </div>
         </div>
       </div>
     </div>

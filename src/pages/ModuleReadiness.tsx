@@ -383,7 +383,7 @@ export const ModuleReadiness = () => {
 
             <button
               onClick={() => navigate("/submissions/build")}
-              className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-2 rounded-xl text-sm shadow-md flex items-center gap-2"
+              className="finalize-btn bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-5 py-2 rounded-xl text-sm shadow-md flex items-center gap-2"
             >
               Finalize for Submission
               <ArrowRight size={16} />

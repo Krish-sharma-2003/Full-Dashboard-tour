@@ -104,7 +104,7 @@ export const ClinicalOverview = () => {
 
             {/* SECTION DOCUMENTS */}
             <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
-              <div className="flex items-center justify-between px-6 py-4 border-b">
+              <div className="navbar-submissions flex items-center justify-between px-6 py-4 border-b">
                 <h3 className="font-semibold text-slate-900">
                   Section Documents
                 </h3>
@@ -163,7 +163,7 @@ export const ClinicalOverview = () => {
             {/* DRAG DROP */}
             <div
               onClick={() => setIsUploadOpen(true)}
-              className="cursor-pointer border-2 border-dashed border-[rgb(44,73,182)] rounded-2xl p-14 text-center bg-[rgb(44,73,182)]/10 hover:bg-[rgb(44,73,182)]/15 transition"
+              className="drag-drop-area border-2 border-dashed border-[rgb(44,73,182)] rounded-2xl p-14 text-center bg-[rgb(44,73,182)]/10 hover:bg-[rgb(44,73,182)]/15 transition"
             >
               <UploadCloudIcon className="w-12 h-12 text-[rgb(44,73,182)] mx-auto mb-4" />
               <p className="font-medium text-slate-800 text-sm">
