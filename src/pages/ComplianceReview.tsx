@@ -326,7 +326,7 @@ export const ComplianceReview = () => {
                 8 issues remaining
               </div>
               <div className="h-2 bg-slate-200 rounded-full">
-                <div className="h-2 w-3/4 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full"></div>
+                <div className="h-2 w-3/4 bg-indigo-500 rounded-full"></div>
               </div>
             </div>
 
@@ -408,10 +408,10 @@ export const ComplianceReview = () => {
                 </p>
 
                 <div className="flex gap-3">
-                  <button className="bg-indigo-600 text-white px-4 py-2 rounded-xl text-sm">
+                  <button className="bg-blue-600 text-white px-4 py-2 rounded-xl text-sm">
                     Fix Manual
                   </button>
-                  <button className="border border-indigo-600 text-indigo-600 px-4 py-2 rounded-xl text-sm">
+                  <button className="border border-blue-600 text-indigo-600 px-4 py-2 rounded-xl text-sm">
                     Request AI Rewrite
                   </button>
                 </div>
@@ -484,7 +484,7 @@ export const ComplianceReview = () => {
             ⚠ Compliance Not Met
           </div>
 
-          <button className="bg-indigo-600 text-white px-5 py-2 rounded-xl text-sm">
+          <button className="bg-blue-600 text-white px-5 py-2 rounded-xl text-sm">
             Save Progress
           </button>
 

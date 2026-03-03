@@ -36,7 +36,7 @@ export const TopNavbar = () => {
         <Bell size={18} className="text-slate-500 cursor-pointer" />
         <Settings size={18} className="text-slate-500 cursor-pointer" />
 
-        <div className="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs font-medium">
+        <div className="w-8 h-8 rounded-full bg-indigo -600 text-white flex items-center justify-center text-xs font-medium">
           SC
         </div>
       </div>
