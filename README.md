@@ -1,4 +1,6 @@
 <img width="1920" height="1080" alt="Screenshot 2026-02-26 184425" src="https://github.com/user-attachments/assets/d22969bc-d3f7-4856-8626-f7f526c4303d" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c26191b1-67b9-4ac9-a3a2-c465c789599d" />
+
 # ReguCompliance eCTD – AI Assisted Regulatory Dashboard
 
 An enterprise-grade regulatory compliance dashboard designed for eCTD submission workflows.
