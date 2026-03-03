@@ -7,7 +7,7 @@ An enterprise-grade regulatory compliance dashboard designed for eCTD submission
 
 This project simulates a real-world regulatory SaaS platform with AI-assisted compliance validation, submission readiness tracking, and final eCTD package generation.
 
----
+-
 
 ## 🔷 Key Features
 
