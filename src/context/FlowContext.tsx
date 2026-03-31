@@ -18,7 +18,7 @@ type FlowContextType = {
   goToStep: (step: number) => void;
 };
 
-const FlowContext = createContext<FlowContextType | undefined>(undefined);
+const FlowContext = createContext<FlowContextType | undefined>(undefined);  // this is hook 
 
 export const FlowProvider = ({ children }: { children: React.ReactNode }) => {
   const [currentStep, setCurrentStep] = useState<number>(1);
