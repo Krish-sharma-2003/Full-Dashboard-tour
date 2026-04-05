@@ -4,7 +4,7 @@ import {
   PlayIcon,
   UploadCloudIcon,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { AIDraftEditorModal } from "../components/modals/AIDraftEditorModal";
 import { UploadDocumentModal } from "../components/modals/UploadDocumentModal";
@@ -19,6 +19,13 @@ export const ClinicalOverview = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const isUpdated = searchParams.get("state") === "updated";
+  const showUploadModal = searchParams.get("modal") === "upload";
+
+  useEffect(() => {
+    if (showUploadModal) {
+      setIsUploadOpen(true);
+    }
+  }, [showUploadModal]);
 
   return (
     <>

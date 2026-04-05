@@ -172,7 +172,7 @@ export const UploadDocumentModal = ({
             </button>
             <button
               onClick={onComplete}
-              className="px-6 py-2.5 rounded-xl bg-[rgb(44,73,182)] text-white text-sm font-semibold shadow-md hover:opacity-90 transition"
+              className="complete-upload-btn px-6 py-2.5 rounded-xl bg-[rgb(44,73,182)] text-white text-sm font-semibold shadow-md hover:opacity-90 transition"
             >
               Complete Upload ✓
             </button>

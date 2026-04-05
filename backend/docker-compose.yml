@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:alpine
+    container_name: ectd_redis
+    ports:
+      - "6379:6379"
+    restart: always
+
+  # You can add the Celery worker here later if you want to run it via Docker
+  # worker:
+  #   build: .
+  #   command: celery -A app.jobs.tasks worker --loglevel=info
+  #   depends_on:
+  #     - redis
+  #   env_file:
+  #     - .env

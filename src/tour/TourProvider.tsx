@@ -1,13 +1,12 @@
 import Joyride, { CallBackProps, STATUS } from "react-joyride";
 import { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { tourSteps } from "./tourSteps";
 
 export const TourProvider = () => {
   const [run, setRun] = useState(false);
   const [stepIndex, setStepIndex] = useState(0);
   const navigate = useNavigate();
-  const location = useLocation();
 
   const handleCallback = (data: CallBackProps) => {
     const { index, status, type } = data;
@@ -20,28 +19,43 @@ export const TourProvider = () => {
     if (type === "step:after") {
       setStepIndex(index + 1);
 
-      // Navigation mapping
+      // Navigation mapping based on 13-step flow
+      if (index === 0) {
+        // Step 1: Create Project (stays on dashboard)
+      }
+
       if (index === 1) {
+        // Step 2: Select Project -> Go to Workspace
         navigate("/workspace");
       }
 
       if (index === 2) {
-        navigate("/workspace"); // stay here for drag drop
+        // Step 3: Drag & Drop click -> Open Modal via URL
+        navigate("/workspace?modal=upload");
       }
 
-      if (index === 4) {
-        navigate("/workspace");
+      if (index === 3) {
+        // Step 4: Complete Upload click -> Go to AI Processing
+        navigate("/ai-processing");
       }
 
-      if (index === 7) {
+      if (index === 5) {
+        // Step 6: Accept Suggestions -> Back to Workspace
+        navigate("/workspace?state=updated");
+      }
+
+      if (index === 10) {
+        // Step 11: Compliance click -> Screen 11
         navigate("/compliance-review");
       }
 
-      if (index === 8) {
+      if (index === 11) {
+        // Step 12: Submission click -> Screen 12
         navigate("/submissions/readiness");
       }
 
-      if (index === 9) {
+      if (index === 12) {
+        // Step 13: Finalize click -> Screen 13
         navigate("/submissions/build");
       }
     }
@@ -71,7 +85,7 @@ export const TourProvider = () => {
         styles={{
           options: {
             primaryColor: "#2563eb",
-            zIndex: 10000,
+            zIndex: 100000,
           },
         }}
       />

@@ -1,89 +1,70 @@
 import { Step } from "react-joyride";
 
 export const tourSteps: Step[] = [
-
   // 1️⃣ Dashboard – Create Project
   {
     target: ".create-project-btn",
-    content:
-      "Begin your regulatory workflow by creating a new submission project.",
+    content: "Step 1: Start by creating a new regulatory submission project.",
     disableBeacon: true,
   },
-
-  // 2️⃣ Select Project
+  // 2️⃣ Project Dashboard - Select Project
   {
     target: ".project-card",
-    content:
-      "Select an active project to open the Project Workspace.",
+    content: "Step 2: Select your project from the dashboard to open the Project Workspace.",
   },
-
-  // 3️⃣ Upload Documents
+  // 3️⃣ Project Workspace – Drag & Drop
   {
     target: ".drag-drop-area",
-    content:
-      "Upload regulatory documents here to initiate AI validation.",
+    content: "Step 3: Click 'Drag and Drop Documents' to open the Upload dialog.",
   },
-
-  // 4️⃣ AI Processing Summary
+  // 4️⃣ Upload Modal - Complete Upload
+  {
+    target: ".complete-upload-btn",
+    content: "Step 4: Fill in the details and click 'Complete Upload' to start AI processing.",
+  },
+  // 5️⃣ AI Processing Summary
   {
     target: ".ai-processing-summary",
-    content:
-      "The system analyzes your uploaded document and identifies compliance insights.",
+    content: "Step 5: After uploading, the system identifies compliance insights and scores.",
   },
-
-  // 5️⃣ Accept Suggestions
+  // 6️⃣ Accept Suggestions
   {
     target: ".accept-suggestions-btn",
-    content:
-      "Accept AI-generated improvements to update your document.",
+    content: "Step 6: Review and click 'Accept Suggestions' to update the document with AI-generated improvements.",
   },
-
-  // 6️⃣ Generate Draft
+  // 7️⃣ Screen 6 - Generate Draft Button
   {
     target: ".generate-draft-btn",
-    content:
-      "Generate an AI-assisted draft for missing or incomplete sections.",
+    content: "Step 7: Back in the workspace, click 'Generate Draft' to open the AI Template Generator dialog.",
   },
-
-  // 7️⃣ AI Draft Editor
+  // 8️⃣ AI Template Generator Modal - Generate Draft
+  {
+    target: ".modal-generate-draft-inner", 
+    content: "Step 8: Click 'Generate Draft' within the dialog to proceed to the AI Draft Editor.",
+  },
+  // 9️⃣ AI Draft Editor (Screen 9)
   {
     target: ".draft-editor",
-    content:
-      "Review, edit, and refine the AI-generated draft before approval.",
+    content: "Step 9: Perform final review and edits in the AI Draft Editor.",
   },
-
-  // 8️⃣ Save Draft
+  // 1️⃣0️⃣ Accept and Save (Screen 10)
   {
     target: ".accept-save-btn",
-    content:
-      "Approve and save the draft to the module. The updated version will appear in your Section Documents.",
+    content: "Step 10: Click 'Accept and Save to Module' to update the module.",
   },
-
-  // 9️⃣ Compliance Review
+  // 1️⃣1️⃣ Compliance (Screen 11)
   {
     target: ".navbar-compliance",
-    content:
-      "Access the Compliance Review panel to resolve regulatory issues.",
+    content: "Step 11: Click 'Compliance' in the navbar to review regulatory status.",
   },
-
-  // 🔟 Submission Readiness
+  // 1️⃣2️⃣ Submission (Screen 12)
   {
     target: ".navbar-submissions",
-    content:
-      "Monitor overall submission readiness and validation metrics here.",
+    content: "Step 12: Click 'Submission' to prepare for finalization.",
   },
-
-  // 1️⃣1️⃣ Finalize Submission
+  // 1️⃣3️⃣ Finalize for Submission (Screen 13)
   {
     target: ".finalize-btn",
-    content:
-      "Once all modules are validated, finalize the submission package.",
-  },
-
-  // 1️⃣2️⃣ Generate eCTD Package
-  {
-    target: ".generate-package-btn",
-    content:
-      "Generate and download the final eCTD submission package.",
+    content: "Step 13: Finally, click 'Finalize for Submission' to complete the flow.",
   },
 ];

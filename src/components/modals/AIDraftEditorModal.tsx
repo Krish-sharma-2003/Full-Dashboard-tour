@@ -227,7 +227,7 @@ export const AIDraftEditorModal = ({ isOpen, onClose }: Props) => {
                 onClose();
                 navigate("?state=updated", { replace: true });
               }}
-              className="generate-draft-btn bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl shadow-md text-sm"
+              className="accept-save-btn bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl shadow-md text-sm"
             >
               Accept & Save to Module
             </button>
