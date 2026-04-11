@@ -15,6 +15,8 @@ export const ClinicalOverview = () => {
   const [isUploadOpen, setIsUploadOpen] = useState(false);
   const [isGeneratorOpen, setIsGeneratorOpen] = useState(false);
   const [isDraftEditorOpen, setIsDraftEditorOpen] = useState(false);
+  // const [documents, setDocuments] = useState<any[]>([]);
+  // const [loadingDocs, setLoadingDocs] = useState(false);
 
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();

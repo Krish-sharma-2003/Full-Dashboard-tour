@@ -15,6 +15,9 @@ import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import { CreateProjectModal } from "../components/modals/CreateProjectModal";
 import { useFlow } from "../context/FlowContext";
+import { useEffect } from "react";
+import { api } from "../lib/api";
+
 
 const statsData = [
   { label: "ACTIVE SUBMISSIONS", value: "12" },
@@ -71,9 +74,51 @@ export const Dashboard = (): JSX.Element => {
 
   /* 🧠 Created Projects from FlowContext */
   const { projects: createdProjects } = useFlow();
+  
+  const [backendProjects, setBackendProjects] = useState<any[]>([]);
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState("");
+
+// 🔥 ADD FETCH LOGIC
+
+useEffect(() => {
+  const fetchProjects = async () => {
+    try {
+      setLoading(true);
+      setError("");
+
+      const data = await api.getProjects("test_org");
+
+      // 🔥 backend → UI format mapping
+      const formatted = data.map((p: any) => ({
+        id: p.id,
+        title: p.name,
+        company: "Your Org", // temporary
+        region: p.region,
+        created: new Date(p.created_at).toLocaleDateString(),
+        phase: p.status || "DRAFT",
+        completion: "0%",
+      }));
+
+      setBackendProjects(formatted);
+    } catch (err: any) {
+      console.error(err);
+      setError("Failed to load projects from backend");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchProjects();
+}, []);
 
   /* 🔥 Merge default + created */
-  const allProjects = [...defaultProjects, ...createdProjects];
+  // const allProjects = [...defaultProjects, ...createdProjects];
+  const allProjects = [
+  ...defaultProjects,
+  ...backendProjects,
+  ...createdProjects,
+];
 
   return (
     <>
@@ -101,6 +146,8 @@ export const Dashboard = (): JSX.Element => {
             </span>
           </Button>
         </header>
+
+        
 
         {/* STATS */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full">
@@ -230,3 +277,181 @@ export const Dashboard = (): JSX.Element => {
     </>
   );
 };
+
+
+
+// import {
+//   BuildingIcon,
+//   CalendarIcon,
+//   ChevronDownIcon,
+//   ChevronRightIcon,
+//   FlaskConicalIcon,
+//   GlobeIcon,
+//   PlusIcon,
+//   SparklesIcon,
+// } from "lucide-react";
+// import { useState, useEffect } from "react";
+// import { useNavigate } from "react-router-dom";
+// import { Badge } from "../components/ui/badge";
+// import { Button } from "../components/ui/button";
+// import { Card, CardContent } from "../components/ui/card";
+// import { CreateProjectModal } from "../components/modals/CreateProjectModal";
+// import { useFlow } from "../context/FlowContext";
+// import { api } from "../lib/api"; // ✅ important
+
+// const statsData = [
+//   { label: "ACTIVE SUBMISSIONS", value: "12" },
+//   { label: "PENDING REVIEW", value: "4" },
+//   { label: "HEALTH AUTHORITIES", value: "08" },
+// ];
+
+// const defaultProjects = [
+//   {
+//     id: "default-1",
+//     title: "Project Alpha - Oncology Submission",
+//     company: "XYZ Pharma",
+//     region: "US (FDA)",
+//     created: "12 Feb 2026",
+//     phase: "PHASE III",
+//     completion: "84%",
+//   },
+//   {
+//     id: "default-2",
+//     title: "Vax-Guard 2026 Resubmission",
+//     company: "Global Biologics",
+//     region: "EU (EMA)",
+//     created: "05 Feb 2026",
+//     phase: "AWAITING REVIEW",
+//     completion: "100%",
+//   },
+//   {
+//     id: "default-3",
+//     title: "NeuroPath Small Molecule IND",
+//     company: "NeuroLabs Inc.",
+//     region: "JP (PMDA)",
+//     created: "28 Jan 2026",
+//     phase: "DRAFTING",
+//     completion: "22%",
+//   },
+// ];
+
+// const getBadgeClasses = (phase?: string) => {
+//   if (!phase) return "bg-blue-50 text-blue-600 border-blue-100";
+
+//   if (phase.toLowerCase().includes("iii"))
+//     return "bg-emerald-50 text-emerald-600 border-emerald-100";
+
+//   if (phase.toLowerCase().includes("review"))
+//     return "bg-amber-50 text-amber-600 border-amber-100";
+
+//   return "bg-blue-50 text-blue-600 border-blue-100";
+// };
+
+// export const Dashboard = (): JSX.Element => {
+//   const [isModalOpen, setIsModalOpen] = useState(false);
+//   const navigate = useNavigate();
+
+//   const { projects: createdProjects } = useFlow();
+
+//   // 🔥 NEW STATE
+//   const [backendProjects, setBackendProjects] = useState<any[]>([]);
+//   const [loading, setLoading] = useState(false);
+//   const [error, setError] = useState("");
+
+//   // 🔥 FETCH FROM BACKEND
+//   useEffect(() => {
+//     const fetchProjects = async () => {
+//       try {
+//         setLoading(true);
+//         setError("");
+
+//         const data = await api.getProjects("test_org");
+
+//         const formatted = data.map((p: any) => ({
+//           id: p.id,
+//           title: p.name,
+//           company: "Your Org",
+//           region: p.region,
+//           created: new Date(p.created_at).toLocaleDateString(),
+//           phase: p.status || "DRAFT",
+//           completion: "0%",
+//         }));
+
+//         setBackendProjects(formatted);
+//       } catch (err: any) {
+//         console.error(err);
+//         setError("Failed to load projects from backend");
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchProjects();
+//   }, []);
+
+//   // 🔥 MERGE ALL DATA
+//   const allProjects = [
+//     ...defaultProjects,
+//     ...backendProjects,
+//     ...createdProjects,
+//   ];
+
+//   return (
+//     <>
+//       <section className="flex flex-col max-w-7xl mx-auto items-start gap-8 p-4 md:p-6 lg:p-8 w-full">
+        
+//         <header className="flex flex-col md:flex-row items-start md:items-end justify-between w-full gap-4">
+//           <div className="flex flex-col items-start gap-2">
+//             <h1 className="font-extrabold text-slate-900 text-2xl md:text-3xl tracking-tight leading-tight">
+//               Project Dashboard
+//             </h1>
+//             <p className="max-w-lg font-normal text-slate-600 text-sm md:text-base leading-relaxed">
+//               Manage and monitor pharmaceutical eCTD submission projects.
+//             </p>
+//           </div>
+
+//           <Button
+//             onClick={() => setIsModalOpen(true)}
+//             className="create-project-btn gap-2 px-5 py-2.5 bg-[rgb(44,73,182)] rounded-full"
+//           >
+//             <PlusIcon className="w-4 h-4" />
+//             <span className="text-white">Create Project</span>
+//           </Button>
+//         </header>
+
+//         {/* 🔥 STATUS */}
+//         {loading && <p className="text-sm text-slate-500">Loading projects...</p>}
+//         {error && <p className="text-sm text-red-500">{error}</p>}
+
+//         {/* PROJECT LIST */}
+//         <div className="flex flex-col gap-4 w-full">
+//           {allProjects.map((project) => (
+//             <Card
+//               key={project.id}
+//               onClick={() => navigate("/workspace")}
+//               className="cursor-pointer w-full"
+//             >
+//               <CardContent className="flex justify-between p-5">
+//                 <div>
+//                   <h3 className="font-semibold">{project.title}</h3>
+//                   <p className="text-sm text-gray-500">
+//                     {project.region} • {project.created}
+//                   </p>
+//                 </div>
+
+//                 <Badge className={getBadgeClasses(project.phase)}>
+//                   {project.phase}
+//                 </Badge>
+//               </CardContent>
+//             </Card>
+//           ))}
+//         </div>
+
+//         <CreateProjectModal
+//           isOpen={isModalOpen}
+//           onClose={() => setIsModalOpen(false)}
+//         />
+//       </section>
+//     </>
+//   );
+// };
