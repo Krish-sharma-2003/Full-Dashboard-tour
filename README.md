@@ -1,0 +1,6 @@
+SUPABASE_URL=https://yayvyfmkqzxcbbigipgb.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlheXZ5Zm1rcXp4Y2JiaWdpcGdiIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MTA3MDQyNywiZXhwIjoyMDk2NjQ2NDI3fQ.U-ZcxCQBVewDqu2toDGBtUpTGVLmdRfEOpHfLw1YBYw
+ANTHROPIC_API_KEY=sk-dummy
+REDIS_URL=redis://localhost:6379/0
+APP_NAME="AI-eCTD Platform API"
+DEBUG=True
