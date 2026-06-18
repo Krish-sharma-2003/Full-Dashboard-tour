@@ -225,7 +225,7 @@ export const AIDraftEditorModal = ({ isOpen, onClose }: Props) => {
             <button
               onClick={() => {
                 onClose();
-                navigate("?state=updated", { replace: true });
+                navigate("/workspace?state=updated", { replace: true });
               }}
               className="accept-save-btn bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl shadow-md text-sm"
             >

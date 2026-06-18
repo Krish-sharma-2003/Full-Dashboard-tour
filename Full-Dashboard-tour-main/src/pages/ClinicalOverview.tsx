@@ -27,6 +27,8 @@ export const ClinicalOverview = () => {
   const [searchParams] = useSearchParams();
   const isUpdated = searchParams.get("state") === "updated";
   const showUploadModal = searchParams.get("modal") === "upload";
+  const showGenerateDraftModal = searchParams.get("modal") === "generateDraft";
+  const showDraftEditorModal = searchParams.get("modal") === "draftEditor";
 
   // 🔥 Read project_id from URL: /workspace?project_id=<id>
   const projectId = searchParams.get("project_id") || "";
@@ -50,6 +52,14 @@ export const ClinicalOverview = () => {
       setIsUploadOpen(true);
     }
   }, [showUploadModal]);
+
+  useEffect(() => {
+    setIsGeneratorOpen(showGenerateDraftModal);
+  }, [showGenerateDraftModal]);
+
+  useEffect(() => {
+    setIsDraftEditorOpen(showDraftEditorModal);
+  }, [showDraftEditorModal]);
 
   useEffect(() => {
     fetchDocuments();
@@ -95,6 +105,7 @@ export const ClinicalOverview = () => {
             />
 
             <ActionButton
+              className="generate-draft-btn"
               icon={<SparklesIcon className="w-4 h-4" />}
               label="Generate Draft"
               onClick={() => setIsGeneratorOpen(true)}
@@ -102,7 +113,7 @@ export const ClinicalOverview = () => {
 
             <button
   onClick={() => navigate("/compliance-review")}
-  className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[rgb(44,73,182)] text-white text-sm font-semibold shadow-md hover:opacity-90 transition"
+  className="submit-review-btn flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[rgb(44,73,182)] text-white text-sm font-semibold shadow-md hover:opacity-90 transition"
 >
   <PlayIcon className="w-4 h-4" />
   Submit for Review
@@ -139,7 +150,7 @@ export const ClinicalOverview = () => {
 
             {/* SECTION DOCUMENTS */}
             <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
-              <div className="navbar-submissions flex items-center justify-between px-6 py-4 border-b">
+              <div className="flex items-center justify-between px-6 py-4 border-b">
                 <h3 className="font-semibold text-slate-900">
                   Section Documents
                   {projectId && (
@@ -375,10 +386,10 @@ export const ClinicalOverview = () => {
 
 /* COMPONENTS */
 
-const ActionButton = ({ icon, label, onClick }: any) => (
+const ActionButton = ({ icon, label, onClick, className }: any) => (
   <button
     onClick={onClick}
-    className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-700 text-sm font-medium hover:bg-slate-50 transition"
+    className={`flex items-center gap-2 px-5 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-700 text-sm font-medium hover:bg-slate-50 transition ${className || ""}`}
   >
     {icon}
     {label}

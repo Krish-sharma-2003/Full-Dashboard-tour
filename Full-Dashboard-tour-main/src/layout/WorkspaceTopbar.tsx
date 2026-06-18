@@ -1,4 +1,5 @@
 import { SearchIcon, BellIcon } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 export const WorkspaceTopbar = () => {
   return (
@@ -11,18 +12,22 @@ export const WorkspaceTopbar = () => {
         </h1>
 
         <nav className="hidden md:flex gap-6 text-sm text-slate-600">
-          <span className="hover:text-[rgb(44,73,182)] cursor-pointer">
-            Dashboard
-          </span>
-          <span className="text-[rgb(44,73,182)] font-medium">
-            Projects
-          </span>
-          <span className="hover:text-[rgb(44,73,182)] cursor-pointer">
-            Compliance
-          </span>
-          <span className="hover:text-[rgb(44,73,182)] cursor-pointer">
-            Submissions
-          </span>
+         <NavLink
+    to="/"
+    className="hover:text-[rgb(44,73,182)]"
+  >
+    Dashboard
+  </NavLink>
+
+  <NavLink
+    to="/projects"
+    className="text-[rgb(44,73,182)] font-medium"
+  >
+    Projects
+  </NavLink>
+          <NavLink to="/compliance-review" className="navbar-compliance text-slate-500 hover:text-slate-900"> Compliance
+          </NavLink>
+          <NavLink to="/submissions/readiness" className="navbar-submissions text-slate-500 hover:text-slate-900"> Submissions </NavLink>
         </nav>
       </div>
 

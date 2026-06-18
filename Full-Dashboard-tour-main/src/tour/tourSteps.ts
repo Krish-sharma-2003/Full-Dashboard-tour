@@ -53,10 +53,10 @@ export const tourSteps: Step[] = [
     content: "Step 10: Click 'Accept and Save to Module' to update the module.",
   },
   // 1️⃣1️⃣ Compliance (Screen 11)
-  {
-    target: ".navbar-compliance",
-    content: "Step 11: Click 'Compliance' in the navbar to review regulatory status.",
-  },
+ {
+  target: ".navbar-compliance",
+  content: "Step 11: Click 'Compliance' in the navbar to review regulatory status."
+},
   // 1️⃣2️⃣ Submission (Screen 12)
   {
     target: ".navbar-submissions",

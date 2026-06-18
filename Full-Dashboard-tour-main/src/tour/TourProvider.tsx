@@ -8,58 +8,141 @@ export const TourProvider = () => {
   const [stepIndex, setStepIndex] = useState(0);
   const navigate = useNavigate();
 
+  // const handleCallback = (data: CallBackProps) => {
+  //   const { index, status, type } = data;
+
+  //   if (status === STATUS.FINISHED || status === STATUS.SKIPPED) {
+  //     setRun(false);
+  //     setStepIndex(0);
+  //   }
+
+  //   if (type === "step:after") {
+  //     const nextIndex = index + 1;
+
+  //     // Navigation mapping based on 13-step flow
+  //     if (index === 0) {
+  //       // Step 1: Create Project (stays on dashboard)
+  //       setStepIndex(nextIndex);
+  //     } else if (index === 1) {
+  //       // Step 2: Select Project -> Go to Workspace
+  //       navigate("/workspace");
+  //       setTimeout(() => setStepIndex(nextIndex), 400);
+  //     } else if (index === 2) {
+  //       // Step 3: Drag & Drop click -> Open Modal via URL
+  //       navigate("/workspace?modal=upload");
+  //       setTimeout(() => setStepIndex(nextIndex), 600); // Give modal transition extra time
+  //     } else if (index === 3) {
+  //       // Step 4: Complete Upload click -> Go to AI Processing
+  //       navigate("/ai-processing");
+  //       setTimeout(() => setStepIndex(nextIndex), 400);
+  //     } else if (index === 5) {
+  //       // Step 6: Accept Suggestions -> Back to Workspace
+  //       navigate("/workspace?state=updated");
+  //       setTimeout(() => setStepIndex(nextIndex), 400);
+  //     } else if (index === 6) {
+  //       // Step 7: Generate Draft click -> Open AI Template Generator Modal
+  //       navigate("/workspace?modal=generateDraft");
+  //       setTimeout(() => setStepIndex(nextIndex), 500);
+  //     } else if (index === 7) {
+  //       // Step 8: Click Generate Draft inside modal -> Open AI Draft Editor Modal
+  //       navigate("/workspace?modal=draftEditor");
+  //       setTimeout(() => setStepIndex(nextIndex), 500);
+  //     } else if (index === 9) {
+  //       // Step 10: Click Accept & Save -> Go to Workspace (updated state)
+  //       navigate("/workspace?state=updated");
+  //       setTimeout(() => setStepIndex(nextIndex), 500);
+  //     } else if (index === 10) {
+  //       // Step 11: Compliance click -> Screen 11
+  //       setStepIndex(nextIndex);
+  //       // setTimeout(() => setStepIndex(nextIndex), 400);
+  //     } else if (index === 11) {
+  //       navigate("/compliance-review");
+  //       setTimeout(() => setStepIndex(nextIndex), 500);
+  //     } else if (index === 12) {
+  //       navigate("/submissions/readiness");
+  //       setTimeout(() => setStepIndex(nextIndex), 500);
+  //     } else {
+  //       setStepIndex(nextIndex);
+  //     }
+  //   }
+  // };
+
   const handleCallback = (data: CallBackProps) => {
-    const { index, status, type } = data;
+  const { index, status, type } = data;
 
-    if (status === STATUS.FINISHED || status === STATUS.SKIPPED) {
-      setRun(false);
-      setStepIndex(0);
+  if (status === STATUS.FINISHED || status === STATUS.SKIPPED) {
+    setRun(false);
+    setStepIndex(0);
+    return;
+  }
+
+  if (type === "step:after") {
+    const nextIndex = index + 1;
+
+    if (index === 0) {
+      // Step 1 -> Step 2
+      setStepIndex(nextIndex);
+
+    } else if (index === 1) {
+      // Step 2 -> Workspace
+      navigate("/workspace");
+      setTimeout(() => setStepIndex(nextIndex), 400);
+
+    } else if (index === 2) {
+      // Step 3 -> Upload Modal
+      navigate("/workspace?modal=upload");
+      setTimeout(() => setStepIndex(nextIndex), 600);
+
+    } else if (index === 3) {
+      // Step 4 -> AI Processing
+      navigate("/ai-processing");
+      setTimeout(() => setStepIndex(nextIndex), 400);
+
+    } else if (index === 5) {
+      // Step 6 -> Updated Workspace
+      navigate("/workspace?state=updated");
+      setTimeout(() => setStepIndex(nextIndex), 400);
+
+    } else if (index === 6) {
+      // Step 7 -> AI Template Generator
+      navigate("/workspace?modal=generateDraft");
+      setTimeout(() => setStepIndex(nextIndex), 500);
+
+    } else if (index === 7) {
+      // Step 8 -> Draft Editor
+      navigate("/workspace?modal=draftEditor");
+      setTimeout(() => setStepIndex(nextIndex), 500);
+
+    } else if (index === 9) {
+      // Step 10 -> Clinical Overview (Screen 10)
+      navigate("/workspace?state=updated");
+      setTimeout(() => setStepIndex(nextIndex), 500);
+
+    }else if (index === 10) {
+  // Step 11
+  setStepIndex(nextIndex);
+}
+
+else if (index === 11) {
+  // Step 12
+  setStepIndex(nextIndex);
+}
+
+else if (index === 12) {
+  // Step 13
+  navigate("/submissions/readiness");
+
+  setTimeout(() => {
+    setStepIndex(nextIndex);
+  }, 500);
+} else {
+      setStepIndex(nextIndex);
     }
+  }
+};
 
-    if (type === "step:after") {
-      setStepIndex(index + 1);
 
-      // Navigation mapping based on 13-step flow
-      if (index === 0) {
-        // Step 1: Create Project (stays on dashboard)
-      }
 
-      if (index === 1) {
-        // Step 2: Select Project -> Go to Workspace
-        navigate("/workspace");
-      }
-
-      if (index === 2) {
-        // Step 3: Drag & Drop click -> Open Modal via URL
-        navigate("/workspace?modal=upload");
-      }
-
-      if (index === 3) {
-        // Step 4: Complete Upload click -> Go to AI Processing
-        navigate("/ai-processing");
-      }
-
-      if (index === 5) {
-        // Step 6: Accept Suggestions -> Back to Workspace
-        navigate("/workspace?state=updated");
-      }
-
-      if (index === 10) {
-        // Step 11: Compliance click -> Screen 11
-        navigate("/compliance-review");
-      }
-
-      if (index === 11) {
-        // Step 12: Submission click -> Screen 12
-        navigate("/submissions/readiness");
-      }
-
-      if (index === 12) {
-        // Step 13: Finalize click -> Screen 13
-        navigate("/submissions/build");
-      }
-    }
-  };
 
   return (
     <>

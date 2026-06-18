@@ -86,12 +86,17 @@ export const Topbar = () => {
             <NavLink to="/projects" className="text-[rgb(44,73,182)] border-b-2 border-[rgb(44,73,182)] pb-1">
               Projects
             </NavLink>
-            <span className="text-slate-500 hover:text-slate-900 cursor-pointer">
+            <NavLink
+             to="/compliance-review" className="navbar-compliance text-slate-500 hover:text-slate-900">
               Compliance
-            </span>
-            <span className="text-slate-500 hover:text-slate-900 cursor-pointer">
+            </NavLink>
+
+            <NavLink
+              to="/submissions/readiness"
+              className="navbar-submissions text-slate-500 hover:text-slate-900"
+            >
               Submissions
-            </span>
+            </NavLink>
           </nav>
         )}
       </div>
